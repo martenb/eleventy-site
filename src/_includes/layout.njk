@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+    <link rel="icon" href="{{ '/img/favicon.ico' | url }}">
+
+    <title>{{ title }} | {{  site.name }}</title>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ '/' | url }}">
+            <img src="{{ '/img/logo.svg' | url }}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            {{ site.name }}
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        {% set navPages = collections.all | eleventyNavigation %}
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav">
+                {%- for entry in navPages %}
+                <li class="nav-item{% if entry.url == page.url %} active{% endif %}">
+                    <a class="nav-link" href="{{ entry.url | url }}">
+                        {{ entry.title }}
+                        {% if entry.url == page.url %}<span class="sr-only">(current)</span>{% endif %}
+                    </a>
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </nav>
+
+    {{ content | safe }}
+</div>
+</body>
+</html>

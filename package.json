@@ -1,0 +1,23 @@
+{
+  "name": "eleventy-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "bootstrap": "^4.5.3"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy-navigation": "^0.1.6",
+    "date-fns": "^2.16.1",
+    "eleventy-plugin-sass": "^1.1.1"
+  },
+  "scripts": {
+    "clean": "rm -rf build",
+    "start": "npm run clean && eleventy --serve",
+    "build": "npm run clean && eleventy"
+  },
+  "author": "Martin Brettschneider <martin.brettschneider@gmail.com>",
+  "license": "MIT"
+}
